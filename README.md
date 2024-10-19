@@ -28,7 +28,7 @@ your-repo/
 ├── requirements.txt        # Python dependencies
 └── .github/
     └── workflows/
-        └── deploy.yml      # GitHub Actions workflow for CI/CD
+        └── main.yml      # GitHub Actions workflow for CI/CD
 ```
 
 
