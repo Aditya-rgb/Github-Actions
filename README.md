@@ -120,7 +120,7 @@ This project follows a structured workflow across three distinct environments: *
 
 ## GitHub Actions Workflow
 
-This workflow automates the deployment process to an AWS EC2 instance. It triggers on two events: a push or pull request to the `prod` branch. The following steps outline the workflow's operations:
+This workflow automates the deployment process to an AWS EC2 instance. It triggers on two events: a push or pull request to the `dev`, `test` or `prod` branches. The following steps outline the workflow's operations:
 
 ### Steps Overview
 
