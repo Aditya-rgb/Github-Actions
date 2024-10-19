@@ -89,6 +89,8 @@ This project follows a structured workflow across three distinct environments: *
   - Created a separate `dev` branch to work on new features without affecting the main branch.
   - Set up a GitHub Actions workflow that triggers on pushes to the `dev` branch.
   - Configured the workflow to install dependencies and run tests using pytest to ensure that the new features are working as expected.
+  - Triggered the workflow by pushing changes to the `dev` branch.
+  - The application successfully cleared the Pytest tests and the code base was deployed to the EC2 instance using the configured GitHub Actions, which automated the deployment process.
 - **Outcome:** Successful execution of tests confirmed that the changes were functioning correctly before proceeding to the next stage.
 
 ### Staging Environment
@@ -98,7 +100,7 @@ This project follows a structured workflow across three distinct environments: *
   - Created a `stage` branch from the `dev` branch to prepare for staging deployment.
   - Updated the GitHub Actions workflow to reflect any necessary changes for the staging environment.
   - Triggered the workflow by pushing changes to the `stage` branch, which included running the same tests that were executed in the development phase.
-  - Conducted manual testing and user acceptance testing (UAT) to ensure all features work as intended in the staging environment.
+  - The application successfully cleared the Pytest tests and the code base was deployed to the EC2 instance again using the configured GitHub Actions, which automated the deployment process.
 - **Outcome:** After passing all tests and UAT in staging, the application was deemed ready for production deployment.
 
 ### Production Environment
@@ -108,7 +110,7 @@ This project follows a structured workflow across three distinct environments: *
   - Created a `prod` branch from the `stage` branch for the final deployment.
   - Made necessary adjustments to the GitHub Actions workflow for the production environment, ensuring that it aligns with production standards.
   - Triggered the workflow by pushing changes to the `prod` branch, which included running the complete suite of tests to confirm that everything is functioning correctly.
-  - Deployed the application to the EC2 instance using the configured GitHub Actions, which automated the deployment process.
+  - The application successfully cleared the Pytest tests and the code base was deployed to the EC2 instance again using the configured GitHub Actions, which automated the deployment process.
 - **Outcome:** The application was successfully deployed to the production environment, and the workflow confirmed that the deployment was completed without issues.
 
 
