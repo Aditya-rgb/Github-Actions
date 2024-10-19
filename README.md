@@ -8,6 +8,7 @@ This repository contains a Flask application that renders an `index.html` file. 
 - [Workflow](#workflow)
 - [Infrastructure Setup](#infrastructure-setup)
 - [Development and Deployment](#development-and-deployment)
+- [GitHub Actions Workflow](#GitHub-Actions-Workflow)
 - [Summary](#summary)
 - [Contributing](#contributing)
 - [Contact](#Contact)
@@ -116,7 +117,31 @@ This project follows a structured workflow across three distinct environments: *
   - Triggered the workflow by pushing changes to the `prod` branch, which included running the complete suite of tests to confirm that everything is functioning correctly.
   - The application successfully cleared the Pytest tests and the code base was deployed to the EC2 instance again using the configured GitHub Actions, which automated the deployment process.
 - **Outcome:** The application was successfully deployed to the production environment, and the workflow confirmed that the deployment was completed without issues.
-  
+
+## GitHub Actions Workflow
+
+This workflow automates the deployment process to an AWS EC2 instance. It triggers on two events: a push or pull request to the `prod` branch. The following steps outline the workflow's operations:
+
+### Steps Overview
+
+1. **Checkout Code**:
+   - This step retrieves the latest code from the repository, ensuring that the workflow operates on the most recent version.
+
+2. **Set Up Python Environment**:
+   - A specific version of Python (`3.12`) is set up in the environment, allowing for consistent dependencies and behavior across runs.
+
+3. **Install Dependencies**:
+   - This step upgrades `pip` and installs necessary Python packages from the `requirements.txt` file, preparing the environment for the application.
+
+4. **Run Tests**:
+   - Executes the test suite using `pytest`, verifying that the application functions correctly and adheres to the expected standards.
+
+5. **Copy Files to EC2**:
+   - This step securely transfers files from the GitHub Actions runner to the specified EC2 instance using SCP (Secure Copy Protocol). It uses the instance's public IP, SSH credentials, and specifies the files and destination for the transfer.
+
+### Final outcome of this workflow
+
+This automated workflow streamlines the deployment process, ensuring that code is tested and seamlessly deployed to an AWS EC2 instance with each update to the `dev`, `test` or `prod` branch.
 
 ## Summary
 By maintaining separate branches for development, staging, and production, this project ensures that code is rigorously tested at each stage of the development lifecycle. This structured approach minimizes the risk of deploying untested code and facilitates a smoother transition from development to production.
