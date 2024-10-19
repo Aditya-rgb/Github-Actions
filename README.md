@@ -116,8 +116,29 @@ This project follows a structured workflow across three distinct environments: *
   - Triggered the workflow by pushing changes to the `prod` branch, which included running the complete suite of tests to confirm that everything is functioning correctly.
   - The application successfully cleared the Pytest tests and the code base was deployed to the EC2 instance again using the configured GitHub Actions, which automated the deployment process.
 - **Outcome:** The application was successfully deployed to the production environment, and the workflow confirmed that the deployment was completed without issues.
-
-
+  
 
 ## Summary
 By maintaining separate branches for development, staging, and production, this project ensures that code is rigorously tested at each stage of the development lifecycle. This structured approach minimizes the risk of deploying untested code and facilitates a smoother transition from development to production.
+
+## Contributing
+
+We welcome contributions! To contribute:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Commit your changes with clear messages.
+4. Submit a pull request for review.
+
+Make sure to follow the code style guidelines and include proper documentation for any new features.
+
+
+## Contact
+
+For any queries, feel free to contact me:
+
+- **Email:** adityavakharia@gmail.com
+- **GitHub:** [Aditya-rgb](https://github.com/Aditya-rgb/Github-Actions)
+
+You can also open an issue in the repository for questions or suggestions.
+
