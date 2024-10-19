@@ -6,11 +6,12 @@ This repository contains a Flask application that renders an `index.html` file. 
 - [Features](#features)
 - [Directory Structure](#directory-structure)
 - [Workflow](#workflow)
-- [Infrastructure Setup](#Infrastructure Setup)
-- [Development and Deployment](#Development and Deployment)
-- [Summary](#Summary)
+- [Infrastructure Setup](#infrastructure-setup)
+- [Development and Deployment](#development-and-deployment)
+- [Summary](#summary)
 - [Contributing](#contributing)
 - [License](#license)
+
 
 ## Features
 - Flask application to render a static HTML page.
