@@ -10,7 +10,7 @@ This repository contains a Flask application that renders an `index.html` file. 
 - [Development and Deployment](#development-and-deployment)
 - [Summary](#summary)
 - [Contributing](#contributing)
-- [License](#license)
+- [Contact](#Contact)
 
 
 ## Features
