@@ -103,7 +103,7 @@ This project follows a structured workflow across three distinct environments: *
   - The application successfully cleared the Pytest tests and the code base was deployed to the EC2 instance using the configured GitHub Actions, which automated the deployment process.
 - **Outcome:** Successful execution of tests confirmed that the changes were functioning correctly before proceeding to the next stage.
 
-  ![Alt Text](/images/GA-5-pytest successfull.JPG)
+  ![Alt Text](/images/GA-8-dev-deploy-success.JPG)
 
 ### Staging Environment
 - **Branch Name:** `stage`
