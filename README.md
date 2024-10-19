@@ -20,14 +20,18 @@ This repository contains a Flask application that renders an `index.html` file. 
 - Supports multiple environments: development, staging, and production.
 
 ## Directory Structure
+```bash
 your-repo/
-├── app.py
-├── tests/
-│   └── test_app.py
-├── requirements.txt
+├── app.py                  # Main Flask application
+├── tests/                  # Directory for test files
+│   └── test_app.py         # Pytest file for unit tests
+├── requirements.txt        # Python dependencies
 └── .github/
     └── workflows/
-        └── deploy.yml  # Your GitHub Actions workflow file
+        └── deploy.yml      # GitHub Actions workflow for CI/CD
+```
+
+
 
 
 ## Workflow
