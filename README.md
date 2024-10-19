@@ -6,8 +6,9 @@ This repository contains a Flask application that renders an `index.html` file. 
 - [Features](#features)
 - [Directory Structure](#directory-structure)
 - [Workflow](#workflow)
-- [Testing](#testing)
-- [Deployment](#deployment)
+- [Infrastructure Setup](#Infrastructure Setup)
+- [Development and Deployment](#Development and Deployment)
+- [Summary](#Summary)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -35,20 +36,41 @@ The GitHub Actions workflow is defined in `.github/workflows/deploy.yml` and is 
 3. Run tests using pytest.
 4. Copy files to the EC2 instance for deployment.
 
-## Infrastructure setup
+## Infrastructure Setup
 
-To deploy the application to EC2, follow these steps:
+To deploy the application to an EC2 instance, follow these steps:
 
-Configure your EC2 instance and ensure it is accessible via SSH.
-The Public IP, Default username and the SSH key which you can fetch from the .pem file which was created at the time of EC2 instance creation.
-Set up your GitHub repository secrets for EC2_HOST_NAME, EC2_USERNAME, and EC2_SSHKEY by doiung the following
-- fvfvf
-- dvd
-- sdv
+### 1. EC2 Instance Configuration
+Ensure that your EC2 instance is properly configured and accessible via SSH. You will need:
+- **Public IP:** The public IP address of your EC2 instance.
+- **Default Username:** The default username for your EC2 instance (commonly `ubuntu` for Ubuntu instances).
+- **SSH Key:** The private SSH key (`.pem` file) that was generated when you created the EC2 instance. This is required to securely connect to your instance via SSH.
+
+### 2. Setting Up GitHub Repository Secrets
+To securely transfer files and execute commands on the EC2 instance through GitHub Actions, you will need to configure the following repository secrets:
+
+- **EC2_HOST_NAME:** The public IP address or hostname of your EC2 instance.
+- **EC2_USERNAME:** The SSH username for your EC2 instance (e.g., `ubuntu`).
+- **EC2_SSHKEY:** Your EC2 private key stored as a secret, which should be the contents of the `.pem` file used for SSH access.
+
+#### Steps to Add Secrets:
+1. Navigate to your GitHub repository.
+2. Go to **Settings** > **Secrets and variables** > **Actions**.
+3. Click **New repository secret** and add the following:
+   - `EC2_HOST_NAME`
+   - `EC2_USERNAME`
+   - `EC2_SSHKEY` (add the private key content)
+4. Save each secret.
+
+### 3. Deploying via GitHub Actions
+With the EC2 instance properly configured and the secrets set up in your GitHub repository, you can deploy your application directly from GitHub using the automated workflow in place.
+
+Make sure the GitHub Actions workflow is triggered by a push to the designated branch, and the necessary files will be securely copied to your EC2 instance.
 
 
 
-## Development, Staging, and Production Environments
+
+## Development and Deployment
 
 This project follows a structured workflow across three distinct environments: **Development**, **Staging**, and **Production**. Each environment serves a specific purpose in the development lifecycle, allowing for thorough testing and safe deployments.
 
