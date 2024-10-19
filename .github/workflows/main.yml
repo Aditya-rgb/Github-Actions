@@ -1,6 +1,6 @@
 name: Deploy to EC2
 
-# Triggers on push to the main branch
+# Triggers on push to the dev branch
 on:
   push:
     branches:
@@ -28,13 +28,12 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install flask pytest  # Install Flask and pytest
-          pip install -r requirements.txt
+          pip install -r requirements.txt  # Install dependencies from requirements.txt
 
       # Step 3: Run pytest to execute tests
       - name: Run tests
         run: |
-          pytest tests/  # Adjust the path if your tests are located elsewhere
+          pytest -v tests/  # Run tests with verbose output
 
       # Step 4: Use appleboy/scp-action to copy files to EC2
       - name: Copy files to EC2
