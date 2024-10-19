@@ -24,12 +24,14 @@ This repository contains a Flask application that renders an `index.html` file. 
 ```bash
 your-repo/
 ├── app.py                  # Main Flask application
+├── templates/              # Directory for HTML templates
+│   └── index.html          # Main HTML template for the application
 ├── tests/                  # Directory for test files
 │   └── test_app.py         # Pytest file for unit tests
 ├── requirements.txt        # Python dependencies
 └── .github/
     └── workflows/
-        └── main.yml      # GitHub Actions workflow for CI/CD
+        └── main.yml        # GitHub Actions workflow for CI/CD
 ```
 
 
