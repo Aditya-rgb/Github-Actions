@@ -61,6 +61,7 @@ To securely transfer files and execute commands on the EC2 instance through GitH
 - **EC2_USERNAME:** The SSH username for your EC2 instance (e.g., `ubuntu`).
 - **EC2_SSHKEY:** Your EC2 private key stored as a secret, which should be the contents of the `.pem` file used for SSH access.
 
+
 #### Steps to Add Secrets:
 1. Navigate to your GitHub repository.
 2. Go to **Settings** > **Secrets and variables** > **Actions**.
@@ -70,12 +71,13 @@ To securely transfer files and execute commands on the EC2 instance through GitH
    - `EC2_SSHKEY` (add the private key content)
 4. Save each secret.
 
+![Alt Text](/images/GA-git-secrets.JPG)
+
+
 ### 3. Deploying via GitHub Actions
 With the EC2 instance properly configured and the secrets set up in your GitHub repository, you can deploy your application directly from GitHub using the automated workflow in place.
 
 Make sure the GitHub Actions workflow is triggered by a push to the designated branch, and the necessary files will be securely copied to your EC2 instance.
-
-
 
 
 ## Development and Deployment
@@ -91,7 +93,8 @@ This project follows a structured workflow across three distinct environments: *
      ```
 
 - **Actions Taken:**
-  - Developed the Flask application locally in VS Code, focusing on rendering `index.html`.
+  - Developed the Flask application locally in VS Code, focusing on rendering `index.html` and ran a pytest edge casees on it.
+  ![Alt Text](/images/GA-local-pytest-success.JPG)
   - Post development in local pushed the code to git repository into the main branch first.
   - Created a separate `dev` branch to work on new features without affecting the main branch.
   - Set up a GitHub Actions workflow that triggers on pushes to the `dev` branch.
@@ -99,6 +102,8 @@ This project follows a structured workflow across three distinct environments: *
   - Triggered the workflow by pushing changes to the `dev` branch.
   - The application successfully cleared the Pytest tests and the code base was deployed to the EC2 instance using the configured GitHub Actions, which automated the deployment process.
 - **Outcome:** Successful execution of tests confirmed that the changes were functioning correctly before proceeding to the next stage.
+
+  ![Alt Text](/images/GA-5-pytest successfull.JPG)
 
 ### Staging Environment
 - **Branch Name:** `stage`
@@ -108,8 +113,11 @@ This project follows a structured workflow across three distinct environments: *
   - Updated the GitHub Actions workflow to reflect any necessary changes for the staging environment.
   - Triggered the workflow by pushing changes to the `stage` branch, which included running the same tests that were executed in the development phase.
   - The application successfully cleared the Pytest tests and the code base was deployed to the EC2 instance again using the configured GitHub Actions, which automated the deployment process.
+  ![Alt Text](/images/GA-stage-pytest-success.JPG)
 - **Outcome:** After passing all tests and UAT in staging, the application was deemed ready for production deployment.
+  ![Alt Text](/images/GA-stage-all-workflow-success.JPG)
 
+ 
 ### Production Environment
 - **Branch Name:** `prod`
 - **Purpose:** The production environment is the live environment where the application is accessed by end-users. This stage is critical as it directly impacts user experience.
@@ -117,8 +125,16 @@ This project follows a structured workflow across three distinct environments: *
   - Created a `prod` branch from the `stage` branch for the final deployment.
   - Made necessary adjustments to the GitHub Actions workflow for the production environment, ensuring that it aligns with production standards.
   - Triggered the workflow by pushing changes to the `prod` branch, which included running the complete suite of tests to confirm that everything is functioning correctly.
+  ![Alt Text](/images/GA-prod-pytest-success.JPG)
   - The application successfully cleared the Pytest tests and the code base was deployed to the EC2 instance again using the configured GitHub Actions, which automated the deployment process.
+ 
+  ![Alt Text](/images/GA-prod-WF-success.JPG)
 - **Outcome:** The application was successfully deployed to the production environment, and the workflow confirmed that the deployment was completed without issues.
+  
+![Alt Text](/images/GA-9-EC2.JPG)
+
+![Alt Text](/images/GA-3.JPG)
+ 
 
 ## GitHub Actions Workflow
 
@@ -150,7 +166,7 @@ By maintaining separate branches for development, staging, and production, this 
 
 ## Contributing
 
-We welcome contributions! To contribute:
+I welcome contributions! To contribute:
 
 1. Fork the repository.
 2. Create a new branch for your feature or bug fix.
